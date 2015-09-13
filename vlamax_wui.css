@@ -1,0 +1,269 @@
+body {
+	background: #ffffff;
+}
+
+.absoluteLayer {
+	position: absolute;
+	clear: both;
+}
+
+.ddWrapper {
+	background-color: #ffffff;
+	font-size: 0;
+}
+
+.transparentWrapper {
+	background: transparent url('images/trans.png') repeat left top;
+	font-size: 0;
+}
+
+.brickGray {
+	background-color: #C0C0C0;
+}
+
+.brickGreen {
+	background-color: #80FF80;
+}
+
+.brickWhite {
+	background-color: #FFFFFF;
+}
+
+.brickGray , .brickGreen, .brickWhite {
+	font-size: 0;
+}
+
+.buttonLeft, .buttonMiddle, .buttonRight {
+	font-size: 0;
+	height: 24px;
+}
+
+.buttonLeft, .buttonRight {
+	width: 12px;
+}
+
+.buttonLeft {
+	background: transparent url('images/btn/nl.png') no-repeat left top;
+}
+
+.buttonMiddle {
+	background: transparent url('images/btn/nm.png') repeat-x left top;
+}
+
+.buttonRight {
+	background: transparent url('images/btn/nr.png') no-repeat left top;
+}		
+
+.normalFixed, .normalText, .smallFixed, .textArea, .textBox, .textInfo, .windowTitle, .normalFixedWB, .normalTextWB {
+	font-family: Verdana, Arial, sans-serif;
+}
+
+.checkbox {
+	background: url('images/cbxn.png') no-repeat left top;
+	position: absolute;
+	height: 25px;
+	width: 25px;
+}
+
+.dllButton {
+	font-size: 0;
+	height: 20px;
+	width: 18px;
+}
+
+.editableBrick {
+	background: #FFFFFF;
+	cursor: text;
+	font-size: 12;
+	overflow-y: scroll;
+	padding: 5;
+	word-wrap:break-word;
+}
+
+.ajax {
+	position: absolute;
+	height: 24px;
+	width: 24px;
+}
+
+.inputFile {
+	cursor: pointer;
+	filter: alpha(opacity: 0);
+	float: left;
+	font-size: 20;
+	margin-left: -0px;
+	opacity: 0;
+	position: relative;
+	text-align: right;
+}
+
+.inputWrapper {
+	overflow:    hidden;
+	position:    absolute;
+	white-space: nowrap;
+}
+
+.modal {
+	background: url('images/modal.png') repeat left top;
+	left: 0px;
+	top: 0px;
+}
+
+.modal2 {
+	background: url('images/modal2.png') repeat left top;
+	left: 0px;
+	top: 0px;
+}
+
+.normalFixed, .normalText, .normalFixedWB, .normalTextWB {
+	color: #000000;
+	font-weight: normal;
+	font-size: 12;
+}
+
+.normalText, .normalTextWB {
+	white-space: normal;
+}
+
+.normalFixed, .normalFixedWB {
+	text-overflow: ellipsis;
+	overflow:      hidden;
+	white-space:   nowrap;
+}
+
+.normalFixedWB, .normalTextWB {
+	background: #FFFFFF;
+}
+
+.smallFixed {
+	color: #000000;
+	font-weight: bold;
+	font-size: 10;
+}
+
+.textInfo {
+	color: #000000;
+	font-weight: normal;
+	font-size: 11;
+}
+
+.tableBackground {
+	background: #E0E0E0;
+	cursor: pointer;
+	font-size: 0;
+}
+
+.tableBegin, .tableDecPage, .tableDecrement, .tableEnd, .tableIncPage, .tableIncrement {
+	cursor: pointer;
+	font-size: 0;
+	height: 12px;
+}
+
+.tableBegin {
+	background: url(images/tbl/beg.png) no-repeat;
+	width: 11px;
+}
+
+.tableBottom {
+	background: url(images/tblb.png) repeat-x;
+	font-size: 0;
+	height: 18px;
+}
+
+.tableDecPage {
+	background: url(images/tbl/dec2.png) no-repeat;
+	width: 13px;
+}
+
+.tableDecrement {
+	background: url(images/tbl/dec.png) no-repeat;
+	width: 8px;
+}
+
+.tableEnd {
+	background: url(images/tbl/end.png) no-repeat;
+	width: 11px;
+}
+
+.tableIncPage {
+	background: url(images/tbl/inc2.png) no-repeat;
+	width: 13px;
+}
+
+.tableIncrement {
+	background: url(images/tbl/inc.png) no-repeat;
+	width: 8px;
+}
+
+.textArea {
+	border: 1px solid #80abc6;
+	color: #000000;
+	font-weight: normal;
+	font-size: 12;
+	padding: 5px;
+	position: absolute;
+}
+
+.textBox {
+	background: url(images/form_bg.jpg) repeat-x;
+	border: 1px solid #80abc6;
+	width: 230px;
+	color: #000000;
+	padding: 3px;
+	margin-right: 4px;
+	margin-bottom: 8px;
+}
+
+.windowTitleLeft {
+	background: url(images/wa.png) left top no-repeat;
+	font-size: 0;
+	height: 26px;
+	width: 9px;
+}
+.windowTitleMiddle {
+	background: url(images/wa.png) 0px -55px repeat-x;
+	font-size: 0;
+	height: 26px;
+}
+.windowTitleRight {
+	background: url(images/wa.png) -24px -26px no-repeat;
+	font-size: 0;
+	height: 26px;
+	width: 9px;
+}
+.windowTitle {
+	color: #404040;
+	font-weight: bold;
+	font-size: 12;
+}
+.windowBodyLeft {
+	background: url(images/wal.png) left top repeat-y;
+	font-size: 0;
+	width: 9px;
+}
+.windowBodyMiddle {
+	background: #ffffff;
+	font-size: 0;
+}
+.windowBodyRight {
+	background: url(images/war.png) left top repeat-y;
+	font-size: 0;
+	width: 9px;
+}
+.windowBottomLeft {
+	background: url(images/wa.png) left -282px no-repeat;
+	font-size: 0;
+	height: 9px;
+	width: 9px;
+}
+.windowBottomMiddle {
+	background: url(images/wbm.png) left top repeat-x;
+	font-size: 0;
+	height: 9px;
+}
+.windowBottomRight {
+	background: url(images/wabr.png) left top no-repeat;
+	font-size: 0;
+	height: 9px;
+	width: 9px;
+}
