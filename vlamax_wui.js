@@ -1,3 +1,4 @@
+// VlaMax Library is published under the BSD Licence
 
 var g_sessionId = 0;
 var m_nextOrder    = 1;
