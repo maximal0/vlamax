@@ -9,8 +9,28 @@
 	<script type="text/javascript" src="vlamax_wui_finder.js"></script>
 	<script type="text/javascript" src="HelixT.js"></script>
 	<script type="text/javascript">
+		function TTestWindow() {
+			var m_btnClose = new TButton('Close');
+			var m_video    = new TVideo("test.mp4");
+			var m_window   = createWindow('Test');
+			
+			var onClose = function() {
+				hideModal();
+			};
+			
+			this.show = function() {
+				showModal(m_window);
+			};
+			
+			
+			m_btnClose.setOnClick(onClose);
+			m_window.add(m_video);
+			m_window.add(m_btnClose);
+		};
 	    window.onload = function () { 
 	    	// Entry point
+	    	var wndTest = new TTestWindow();
+	    	wndTest.show();
 	    };
 	    window.onresize = function () { onResize(); };
 	</script>

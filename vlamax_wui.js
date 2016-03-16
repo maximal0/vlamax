@@ -11322,6 +11322,85 @@ function TVerticalMenu() {
     
 };
 
+function TVideo(src, width, height) {
+	var m_alignment  = 0;
+	var m_video  = document.createElement('video');
+	var m_height = (height === undefined || height == null) ? 300 : height;
+	var m_src    = (src === undefined || src == null) ? "" : src;
+	var m_width  = (width === undefined || width == null) ? 300 : width;
+
+	document.body.appendChild(m_video);
+
+	this.alignCenter = function() {
+        m_alignment = 0;
+    };
+    
+    this.alignLeft = function() {
+        m_alignment = 1;
+    };
+
+    this.alignRight = function() {
+        m_alignment = 2;
+    };
+
+    this.getAlignment = function() {
+        return m_alignment;
+    };
+
+    this.getHeight = function() {
+		return m_height;
+    };
+
+    this.getWidth = function() {
+        return m_width;
+    };
+	
+	this.hide = function() {
+		m_video.pause();
+		m_video.style.visibility = 'hidden';
+	};
+	
+	this.move = function(x, y) {
+		m_video.style.left = x + 'px';
+		m_video.style.top  = y + 'px';
+	};
+
+	this.setAutoPlay = function(value) {
+		m_video.autoPlay = value;
+	};
+	
+	this.setOrder = function(order) {
+		order++;
+		m_video.style.zIndex = order;
+		
+		return order + 1;
+	};
+	
+	this.setSize = function(width, height) {
+		m_height = height;
+		m_width  = width;
+		m_video.height = m_height;
+		m_video.width = m_width;
+	};
+
+	this.setSrc = function(src) {
+		m_src = src;
+		m_video.setAttribute('src', src);
+		m_video.load();
+	};
+	
+	this.show = function() {
+		m_video.style.visibility = 'visible';
+	};
+
+	m_video.autoPlay = false;
+	m_video.height = m_height;
+	m_video.width = m_width;
+	m_video.style.position = "absolute";
+	m_video.setAttribute("controls","controls")
+	m_video.setAttribute("src", m_src);
+};
+
 function TWindow(title, margin, padding, layout, undertext) {
 	var m_objects    = new Array();
 	var m_layout     = (layout === undefined || layout == null) ? new TVerticalLayout((margin === undefined || margin == null) ? 15 : margin, (padding === undefined || padding == null) ? 7 : padding) : layout;
