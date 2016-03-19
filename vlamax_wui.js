@@ -11323,13 +11323,25 @@ function TVerticalMenu() {
 };
 
 function TVideo(src, width, height) {
-	var m_alignment  = 0;
-	var m_video  = document.createElement('video');
-	var m_height = (height === undefined || height == null) ? 300 : height;
-	var m_src    = (src === undefined || src == null) ? "" : src;
-	var m_width  = (width === undefined || width == null) ? 300 : width;
+	var m_alignment     = 0;
+	var m_video         = document.createElement('video');
+	var m_height        = (height === undefined || height == null) ? 300 : height;
+	var m_pauseDatetime = null;
+	var m_playDatetime  = null;
+	var m_src           = (src === undefined || src == null) ? "" : src;
+	var m_width         = (width === undefined || width == null) ? 300 : width;
 
 	document.body.appendChild(m_video);
+
+	var onPauseCallback = function() {
+		m_pauseDatetime = new Date();
+	};
+
+	var onPlayCallback = function() {
+		if (!m_playDatetime) {
+			m_playDatetime = new Date();
+		}
+	}; 
 
 	this.alignCenter = function() {
         m_alignment = 0;
@@ -11391,6 +11403,8 @@ function TVideo(src, width, height) {
 	
 	this.show = function() {
 		m_video.style.visibility = 'visible';
+		m_pauseDatetime = null;
+		m_playDatetime = null;
 	};
 
 	m_video.autoPlay = false;
@@ -11399,6 +11413,10 @@ function TVideo(src, width, height) {
 	m_video.style.position = "absolute";
 	m_video.setAttribute("controls","controls")
 	m_video.setAttribute("src", m_src);
+
+	$$$$(m_video, 'play', onPlayCallback);
+	$$$$(m_video, 'pause', onPauseCallback);
+	$$$$(m_video, 'ended', onPauseCallback);
 };
 
 function TWindow(title, margin, padding, layout, undertext) {
