@@ -10,22 +10,18 @@
 	<script type="text/javascript" src="HelixT.js"></script>
 	<script type="text/javascript">
 		function TTestWindow() {
-			var m_btnClose = new TButton('Close');
-			var m_video    = new TVideo("test.mp4");
-			var m_window   = createWindow('Test');
-			
-			var onClose = function() {
-				hideModal();
-			};
-			
-			this.show = function() {
-				showModal(m_window);
-			};
-			
-			
-			m_btnClose.setOnClick(onClose);
-			m_window.add(m_video);
-			m_window.add(m_btnClose);
+			var ddlMarSta = new TDropdownList();
+			var layForm = new TFormLayout();
+			var wndDropdownListSample = createWindow('DropdownList Sample');
+
+			ddlMarSta.add(1, 'Single');
+			ddlMarSta.add(2, 'Engaged');
+			ddlMarSta.add(3, 'Married');
+			ddlMarSta.setSelectedFirst();
+
+			layForm.add(new TText('Marital Status:'), ddlMarSta);
+			wndDropdownListSample.add(layForm);
+			showModal(wndDropdownListSample);
 		};
 	    window.onload = function () { 
 	    	// Entry point

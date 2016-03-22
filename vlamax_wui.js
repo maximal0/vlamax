@@ -11363,6 +11363,14 @@ function TVideo(src, width, height) {
 		return m_height;
     };
 
+     this.getPauseDatetime = function() {
+		return m_pauseDatetime;
+    };
+
+    this.getPlayDatetime = function() {
+		return m_playDatetime;
+    };
+
     this.getWidth = function() {
         return m_width;
     };
@@ -11411,7 +11419,7 @@ function TVideo(src, width, height) {
 	m_video.height = m_height;
 	m_video.width = m_width;
 	m_video.style.position = "absolute";
-	m_video.setAttribute("controls","controls")
+	m_video.setAttribute("controls","controls");
 	m_video.setAttribute("src", m_src);
 
 	$$$$(m_video, 'play', onPlayCallback);
