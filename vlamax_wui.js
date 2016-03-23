@@ -11327,6 +11327,7 @@ function TVideo(src, width, height) {
 	var m_video         = document.createElement('video');
 	var m_height        = (height === undefined || height == null) ? 300 : height;
 	var m_pauseDatetime = null;
+	var m_playCallback  = null;
 	var m_playDatetime  = null;
 	var m_src           = (src === undefined || src == null) ? "" : src;
 	var m_width         = (width === undefined || width == null) ? 300 : width;
@@ -11340,6 +11341,10 @@ function TVideo(src, width, height) {
 	var onPlayCallback = function() {
 		if (!m_playDatetime) {
 			m_playDatetime = new Date();
+		}
+
+		if (m_playCallback != null) {
+			m_playCallback();
 		}
 	}; 
 
@@ -11395,6 +11400,10 @@ function TVideo(src, width, height) {
 		
 		return order + 1;
 	};
+
+	this.setPlayCallback = function(callback) {
+		m_playCallback = callback;
+	};
 	
 	this.setSize = function(width, height) {
 		m_height = height;
@@ -11407,6 +11416,8 @@ function TVideo(src, width, height) {
 		m_src = src;
 		m_video.setAttribute('src', src);
 		m_video.load();
+		m_playDatetime = null;
+		m_pauseDatetime = null;
 	};
 	
 	this.show = function() {

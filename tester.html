@@ -10,17 +10,12 @@
 	<script type="text/javascript" src="HelixT.js"></script>
 	<script type="text/javascript">
 		function TTestWindow() {
-			var ddlMarSta = new TDropdownList();
-			var layForm = new TFormLayout();
-			var wndDropdownListSample = createWindow('DropdownList Sample');
+			var chkTest = new TCheckBox("Test", 0);
+			var wndDropdownListSample = createWindow('CheckBox Sample');
 
-			ddlMarSta.add(1, 'Single');
-			ddlMarSta.add(2, 'Engaged');
-			ddlMarSta.add(3, 'Married');
-			ddlMarSta.setSelectedFirst();
+			chkTest.setChecked(0);
 
-			layForm.add(new TText('Marital Status:'), ddlMarSta);
-			wndDropdownListSample.add(layForm);
+			wndDropdownListSample.add(chkTest);
 			showModal(wndDropdownListSample);
 		};
 	    window.onload = function () { 
