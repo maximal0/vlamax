@@ -7,16 +7,19 @@
 	<script type="text/javascript" src="vlamax_wui_text.js"></script>
 	<script type="text/javascript" src="vlamax_wui_image.js"></script>
 	<script type="text/javascript" src="vlamax_wui_finder.js"></script>
-	<script type="text/javascript" src="HelixT.js"></script>
 	<script type="text/javascript">
 		function TTestWindow() {
-			var chkTest = new TCheckBox("Test", 0);
+			var chkTest = new TImageButton(70, 70, "images/finder/search2.png", "images/finder/exit.png", null, "images/finder/exit.png");
+			var lay = new THorizontalLayout();
 			var wndDropdownListSample = createWindow('CheckBox Sample');
 
-			chkTest.setChecked(0);
+			//chkTest.setChecked(0);
 
-			wndDropdownListSample.add(chkTest);
-			showModal(wndDropdownListSample);
+			lay.add(chkTest);
+			wndDropdownListSample.add(lay);
+			this.show = function() {
+				showModal(wndDropdownListSample);
+			};
 		};
 	    window.onload = function () { 
 	    	// Entry point

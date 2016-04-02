@@ -4164,9 +4164,11 @@ function TImage(url, width, height, parent) {
 	setVisibility('hidden');
 };
 
-function TImageButton(width, height, urlNormal, urlSelected, urlDisabled) {
+function TImageButton(width, height, urlNormal, urlSelected, urlDisabled, urlClicked) {
 	var m_alignment   = 0;
+	var m_clicked     = false;
 	var m_height      = height;
+	var m_imgClicked  = new TImage(((urlClicked === undefined) || (urlClicked == null)) ? urlNormal : urlClicked, width, height);
 	var m_imgNormal   = new TImage(urlNormal, width, height);
 	var m_imgSelected = new TImage(((urlSelected === undefined) || (urlSelected == null)) ? urlNormal : urlSelected, width, height);
 	var m_imgDisabled = new TImage(((urlDisabled === undefined) || (urlDisabled == null)) ? urlNormal : urlDisabled, width, height);
@@ -4176,28 +4178,51 @@ function TImageButton(width, height, urlNormal, urlSelected, urlDisabled) {
 	var m_width       = width;
 	var m_wrapper     = new TBrick();
 	
+	var setClickedImage = function() {
+		m_imgClicked.show();
+		m_imgNormal.hide();
+		m_imgSelected.hide();
+		m_imgDisabled.hide();
+	};
+
 	var setNormalImage = function() {
+		m_imgClicked.hide();
 		m_imgNormal.show();
 		m_imgSelected.hide();
 		m_imgDisabled.hide();
 	};
 
 	var setSelectedImage = function() {
+		m_imgClicked.hide();
 		m_imgNormal.hide();
 		m_imgSelected.show();
 		m_imgDisabled.hide();
 	};
 
 	var onClick = function() {
-		if (m_enabled && m_onCallback != null) {
-			m_onCallback();
+		if (m_enabled) {
+			if (m_clicked) {
+				setNormalImage();
+				m_clicked = false;
+			} else {
+				setClickedImage();
+				m_clicked = true;
+			}
+			
+			if (m_onCallback != null) {
+				m_onCallback();
+			}
 		}
 	};
 
 	var onMouseOut = function() {
 		if (m_enabled && m_selected) {
-			setNormalImage();
 			m_selected = false;
+			if (m_clicked) {
+				setClickedImage();
+			} else {
+				setNormalImage();
+			}
 		}
 	};
 
@@ -4218,6 +4243,7 @@ function TImageButton(width, height, urlNormal, urlSelected, urlDisabled) {
 	
 	this.disable = function() {
 		if (m_enabled) {
+			m_imgClicked.hide();
 			m_imgNormal.hide();
 			m_imgSelected.hide();
 			m_imgDisabled.show();
@@ -4228,7 +4254,11 @@ function TImageButton(width, height, urlNormal, urlSelected, urlDisabled) {
 
 	this.enable = function() {
 		if (!m_enabled) {
-			setNormalImage();
+			if (m_clicked) {
+				setClickedImage();
+			} else {
+				setNormalImage();
+			}
 			m_wrapper.setCursor('pointer');
 			m_enabled = true;
 			m_selected = false;
@@ -4248,6 +4278,7 @@ function TImageButton(width, height, urlNormal, urlSelected, urlDisabled) {
 	};
 	
 	this.hide = function() {
+		m_imgClicked.hide();
 		m_imgNormal.hide();
 		m_imgSelected.hide();
 		m_imgDisabled.hide();
@@ -4255,6 +4286,7 @@ function TImageButton(width, height, urlNormal, urlSelected, urlDisabled) {
 	};
 	
 	this.move = function(x, y) {
+		m_imgClicked.move(x, y);
 		m_imgNormal.move(x, y);
 		m_imgSelected.move(x, y);
 		m_imgDisabled.move(x, y);
@@ -4267,6 +4299,7 @@ function TImageButton(width, height, urlNormal, urlSelected, urlDisabled) {
 	};
 	
 	this.setOrder = function(order) {
+		m_imgClicked.setOrder(order);
 		m_imgNormal.setOrder(order);
 		m_imgSelected.setOrder(order);
 		m_imgDisabled.setOrder(order);
