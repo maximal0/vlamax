@@ -4294,6 +4294,13 @@ function TImageButton(width, height, urlNormal, urlSelected, urlDisabled, urlCli
 		m_wrapper.setSize(m_width, m_height);
 	};
 
+	this.setClicked = function() {
+		setClickedImage();
+		m_clicked = true;
+		m_enabled = true;
+		m_selected = false;
+	};
+
 	this.setNormal = function() {
 		setNormalImage();
 		m_clicked = false;
