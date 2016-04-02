@@ -4293,6 +4293,13 @@ function TImageButton(width, height, urlNormal, urlSelected, urlDisabled, urlCli
 		m_wrapper.move(x, y);
 		m_wrapper.setSize(m_width, m_height);
 	};
+
+	this.setNormal = function() {
+		setNormalImage();
+		m_clicked = false;
+		m_enabled = true;
+		m_selected = false;
+	};
 	
 	this.setOnClick = function(callback) {
 		m_onCallback = callback;
